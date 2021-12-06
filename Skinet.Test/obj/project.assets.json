@@ -2250,6 +2250,7 @@
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "5.0.4",
           "Skinet.Infrastructure": "1.0.0",
+          "Skinet.Repository": "1.0.0",
           "Skinet.Services": "1.0.0",
           "Swashbuckle.AspNetCore": "5.6.3"
         },
@@ -2285,6 +2286,20 @@
         },
         "runtime": {
           "bin/placeholder/Skinet.Infrastructure.dll": {}
+        }
+      },
+      "Skinet.Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Skinet.Core": "1.0.0",
+          "Skinet.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Skinet.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Skinet.Repository.dll": {}
         }
       },
       "Skinet.Services/1.0.0": {
@@ -7507,6 +7522,11 @@
       "type": "project",
       "path": "../Infrastructure/Skinet.Infrastructure.csproj",
       "msbuildProject": "../Infrastructure/Skinet.Infrastructure.csproj"
+    },
+    "Skinet.Repository/1.0.0": {
+      "type": "project",
+      "path": "../Skinet.Repository/Skinet.Repository.csproj",
+      "msbuildProject": "../Skinet.Repository/Skinet.Repository.csproj"
     },
     "Skinet.Services/1.0.0": {
       "type": "project",

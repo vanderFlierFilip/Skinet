@@ -489,6 +489,20 @@
           "bin/placeholder/Skinet.Infrastructure.dll": {}
         }
       },
+      "Skinet.Repository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Skinet.Core": "1.0.0",
+          "Skinet.Infrastructure": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Skinet.Repository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Skinet.Repository.dll": {}
+        }
+      },
       "Skinet.Services/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
@@ -1293,6 +1307,11 @@
       "path": "../Infrastructure/Skinet.Infrastructure.csproj",
       "msbuildProject": "../Infrastructure/Skinet.Infrastructure.csproj"
     },
+    "Skinet.Repository/1.0.0": {
+      "type": "project",
+      "path": "../Skinet.Repository/Skinet.Repository.csproj",
+      "msbuildProject": "../Skinet.Repository/Skinet.Repository.csproj"
+    },
     "Skinet.Services/1.0.0": {
       "type": "project",
       "path": "../Skinet.Services/Skinet.Services.csproj",
@@ -1304,6 +1323,7 @@
       "Microsoft.EntityFrameworkCore >= 5.0.4",
       "Microsoft.EntityFrameworkCore.Design >= 5.0.4",
       "Skinet.Infrastructure >= 1.0.0",
+      "Skinet.Repository >= 1.0.0",
       "Skinet.Services >= 1.0.0",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
@@ -1341,6 +1361,9 @@
           "projectReferences": {
             "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Infrastructure\\Skinet.Infrastructure.csproj": {
               "projectPath": "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Infrastructure\\Skinet.Infrastructure.csproj"
+            },
+            "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Repository\\Skinet.Repository.csproj": {
+              "projectPath": "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Repository\\Skinet.Repository.csproj"
             },
             "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Services\\Skinet.Services.csproj": {
               "projectPath": "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Services\\Skinet.Services.csproj"

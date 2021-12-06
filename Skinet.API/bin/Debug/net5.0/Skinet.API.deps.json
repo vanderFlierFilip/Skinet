@@ -36,6 +36,7 @@
           "Microsoft.EntityFrameworkCore": "5.0.4",
           "Microsoft.EntityFrameworkCore.Design": "5.0.4",
           "Skinet.Infrastructure": "1.0.0",
+          "Skinet.Repository": "1.0.0",
           "Skinet.Services": "1.0.0",
           "Swashbuckle.AspNetCore": "5.6.3",
           "Microsoft.AspNetCore.Antiforgery": "5.0.0.0",
@@ -715,6 +716,18 @@
         },
         "compile": {
           "Skinet.Infrastructure.dll": {}
+        }
+      },
+      "Skinet.Repository/1.0.0": {
+        "dependencies": {
+          "Skinet.Core": "1.0.0",
+          "Skinet.Infrastructure": "1.0.0"
+        },
+        "runtime": {
+          "Skinet.Repository.dll": {}
+        },
+        "compile": {
+          "Skinet.Repository.dll": {}
         }
       },
       "Skinet.Services/1.0.0": {
@@ -2673,6 +2686,11 @@
       "sha512": ""
     },
     "Skinet.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Skinet.Repository/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
