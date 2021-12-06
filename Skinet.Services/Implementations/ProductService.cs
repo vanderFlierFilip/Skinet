@@ -31,5 +31,17 @@ namespace Skinet.Services.Implementations
 
             return product;
         }
+        public async Task<IEnumerable<ProductBrand>> GetProductBrands()
+        {
+            var productBrands = await _proudctRepository.GetProductBrandsAsync();
+
+            return productBrands;
+        }
+        public async Task<IEnumerable<ProductType>> GetProductTypes()
+        {
+            var productTypes = await _proudctRepository.GetProductTypesAsync();
+
+            return productTypes;
+        }
     }
 }

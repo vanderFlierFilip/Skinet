@@ -11,5 +11,8 @@ namespace Skinet.Services.Interfaces
     {
         Task<IEnumerable<Product>> GetAllProducts();
         Task<Product> GetProduct(int productId);
+        Task<IEnumerable<ProductBrand>> GetProductBrands();
+        Task<IEnumerable<ProductType>> GetProductTypes();
+
     }
 }

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xunit;
 
 namespace Skinet.Test.ServiceTests
 {
@@ -18,6 +19,13 @@ namespace Skinet.Test.ServiceTests
         {
             _productRepositoryMock = new Mock<IProductRepository>();
             _sut = new ProductService(_productRepositoryMock.Object);
+        }
+        [Fact]
+        public async Task GetProduct_ShouldReturnProductWhenProductExists()
+        {
+            var productId = 1;
+
+            return await _productRepositoryMock.Setup(x => x.GetByIdAsync(productId)).ReturnsAsync()
         }
     }
 }
