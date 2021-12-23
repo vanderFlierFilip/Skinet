@@ -30,7 +30,7 @@ namespace Skinet.Infrastructure
                 catch (Exception ex)
                 {
                     var logger = loggerFactory.CreateLogger<Program>();
-                    logger.LogError(ex, "An Error Occured During Migration");
+                    logger.LogError(ex, "An Error Occurred During Migration");
                 }
             }
             host.Run();

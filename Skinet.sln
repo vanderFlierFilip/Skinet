@@ -9,9 +9,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skinet.Core", "Skinet.Core\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skinet.Infrastructure", "Infrastructure\Skinet.Infrastructure.csproj", "{AE66D8A7-0C96-4338-ACE2-38321E08E22A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skinet.Services", "Skinet.Services\Skinet.Services.csproj", "{203D880A-044C-4D97-B93B-915320F5ACEB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skinet.Services", "Skinet.Services\Skinet.Services.csproj", "{203D880A-044C-4D97-B93B-915320F5ACEB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skinet.Test", "Skinet.Test\Skinet.Test.csproj", "{9D982980-254E-4FE7-B27A-0E78D38B4136}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skinet.Test", "Skinet.Test\Skinet.Test.csproj", "{9D982980-254E-4FE7-B27A-0E78D38B4136}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skinet.Repository", "Skinet.Repository\Skinet.Repository.csproj", "{806813AA-AC0F-4248-8DE8-4D49ED407C34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skinet.Model", "Skinet.Model\Skinet.Model.csproj", "{6728F3A6-CC7B-42D2-ADB1-75B95E21DF0C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +43,14 @@ Global
 		{9D982980-254E-4FE7-B27A-0E78D38B4136}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D982980-254E-4FE7-B27A-0E78D38B4136}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9D982980-254E-4FE7-B27A-0E78D38B4136}.Release|Any CPU.Build.0 = Release|Any CPU
+		{806813AA-AC0F-4248-8DE8-4D49ED407C34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{806813AA-AC0F-4248-8DE8-4D49ED407C34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{806813AA-AC0F-4248-8DE8-4D49ED407C34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{806813AA-AC0F-4248-8DE8-4D49ED407C34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6728F3A6-CC7B-42D2-ADB1-75B95E21DF0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6728F3A6-CC7B-42D2-ADB1-75B95E21DF0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6728F3A6-CC7B-42D2-ADB1-75B95E21DF0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6728F3A6-CC7B-42D2-ADB1-75B95E21DF0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

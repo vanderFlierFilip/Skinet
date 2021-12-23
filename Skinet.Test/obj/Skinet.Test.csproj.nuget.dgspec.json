@@ -101,6 +101,12 @@
               "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Infrastructure\\Skinet.Infrastructure.csproj": {
                 "projectPath": "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Infrastructure\\Skinet.Infrastructure.csproj"
               },
+              "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Model\\Skinet.Model.csproj": {
+                "projectPath": "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Model\\Skinet.Model.csproj"
+              },
+              "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Repository\\Skinet.Repository.csproj": {
+                "projectPath": "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Repository\\Skinet.Repository.csproj"
+              },
               "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Services\\Skinet.Services.csproj": {
                 "projectPath": "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Services\\Skinet.Services.csproj"
               }
@@ -211,6 +217,127 @@
         }
       }
     },
+    "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Model\\Skinet.Model.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Model\\Skinet.Model.csproj",
+        "projectName": "Skinet.Model",
+        "projectPath": "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Model\\Skinet.Model.csproj",
+        "packagesPath": "C:\\Users\\Filip van der Flier\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Model\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Filip van der Flier\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Repository\\Skinet.Repository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Repository\\Skinet.Repository.csproj",
+        "projectName": "Skinet.Repository",
+        "projectPath": "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Repository\\Skinet.Repository.csproj",
+        "packagesPath": "C:\\Users\\Filip van der Flier\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Repository\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Filip van der Flier\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Infrastructure\\Skinet.Infrastructure.csproj": {
+                "projectPath": "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Infrastructure\\Skinet.Infrastructure.csproj"
+              },
+              "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Core\\Skinet.Core.csproj": {
+                "projectPath": "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Core\\Skinet.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Services\\Skinet.Services.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -240,6 +367,9 @@
             "projectReferences": {
               "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Core\\Skinet.Core.csproj": {
                 "projectPath": "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Core\\Skinet.Core.csproj"
+              },
+              "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Model\\Skinet.Model.csproj": {
+                "projectPath": "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.Model\\Skinet.Model.csproj"
               }
             }
           }
@@ -253,6 +383,12 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

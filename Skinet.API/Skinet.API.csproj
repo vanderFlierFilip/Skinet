@@ -16,7 +16,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Infrastructure\Skinet.Infrastructure.csproj" />
+    <ProjectReference Include="..\Skinet.Repository\Skinet.Repository.csproj" />
     <ProjectReference Include="..\Skinet.Services\Skinet.Services.csproj" />
+    <ProjectReference Include="..\Skinet.Model\Skinet.Model.csproj" />
   </ItemGroup>
 
 </Project>
