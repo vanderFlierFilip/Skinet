@@ -1,4 +1,7 @@
-﻿using Skinet.Core.Entities;
+﻿using AutoMapper;
+using Skinet.Model.Models;
+using Skinet.Core;
+using Skinet.Core.Entities;
 using Skinet.Core.Interfaces;
 using Skinet.Services.Interfaces;
 using System;
@@ -11,35 +14,46 @@ namespace Skinet.Services.Implementations
 {
     public class ProductService : IProductService
     {
-        private readonly IProductRepository _proudctRepository;
+        private readonly IGenericRepository<Product> _productsRepo;
+        private readonly IGenericRepository<ProductBrand> _productBrandsRepo;
+        private readonly IGenericRepository<ProductType> _productTypesRepo;
+        private readonly IMapper _mapper;
 
-        public ProductService(IProductRepository proudctRepository)
+        public ProductService(IGenericRepository<Product> productsRepo, IGenericRepository<ProductBrand> productBrandsRepo, 
+        IGenericRepository<ProductType> productTypesRepo, IMapper mapper)
         {
-            _proudctRepository = proudctRepository;
+            _productBrandsRepo = productBrandsRepo;
+            _productTypesRepo = productTypesRepo;
+            _mapper = mapper;
+            _productsRepo = productsRepo;
         }
 
-        public async Task<IEnumerable<Product>> GetAllProducts()
+        public async Task<IEnumerable<ProductReadDto>> GetAllProducts()
         {
-            var products = await _proudctRepository.GetAllProductsAsync();
+            var spec = new ProductsWithTypesAndBrandsSpecification();
 
-            return products;
+            var products = await _productsRepo.ListAsync(spec);
+
+            return _mapper.Map<IReadOnlyList<ProductReadDto>>(products);
         }
 
-        public async Task<Product> GetProduct(int productId)
+        public async Task<ProductReadDto> GetProduct(int productId)
         {
-            var product = await _proudctRepository.GetByIdAsync(productId);
+            var spec = new ProductsWithTypesAndBrandsSpecification(productId);
 
-            return product;
+            var product = await _productsRepo.GetEntityWithSpec(spec);
+
+            return _mapper.Map<ProductReadDto>(product);
         }
         public async Task<IEnumerable<ProductBrand>> GetProductBrands()
         {
-            var productBrands = await _proudctRepository.GetProductBrandsAsync();
+            var productBrands = await _productBrandsRepo.ListAllAsync();
 
             return productBrands;
         }
         public async Task<IEnumerable<ProductType>> GetProductTypes()
         {
-            var productTypes = await _proudctRepository.GetProductTypesAsync();
+            var productTypes = await _productTypesRepo.ListAllAsync();
 
             return productTypes;
         }

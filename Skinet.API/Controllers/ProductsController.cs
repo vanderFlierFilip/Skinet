@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Skinet.Model.Models;
 using Skinet.Core.Entities;
 using Skinet.Services.Interfaces;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace Skinet.API.Controllers
             return Ok(products);
         }
         [HttpGet("{id}")]
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<ActionResult<ProductReadDto>> GetProduct(int id)
         {
             var product = await _productsService.GetProduct(id);
 
