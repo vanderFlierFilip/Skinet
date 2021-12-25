@@ -35,7 +35,12 @@
       "ProjectGuid": "806813aa-ac0f-4248-8de8-4d49ed407c34",
       "DisplayName": "Skinet.Repository",
       "ColorIndex": 5
+    },
+    "6728f3a6-cc7b-42d2-adb1-75b95e21df0c": {
+      "ProjectGuid": "6728f3a6-cc7b-42d2-adb1-75b95e21df0c",
+      "DisplayName": "Skinet.Model",
+      "ColorIndex": 6
     }
   },
-  "NextColorIndex": 6
+  "NextColorIndex": 7
 }
