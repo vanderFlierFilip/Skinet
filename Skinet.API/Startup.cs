@@ -34,6 +34,13 @@ namespace Skinet.Infrastructure
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(o => o.AddPolicy("SkinetPolicy", builder =>
+            {
+                builder.WithOrigins("https://localhost:44369")
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
             services.AddScoped(typeof(IGenericRepository<>),  typeof(GenericRepository<>));
             // Repositories
             services.AddScoped<IProductRepository, ProductRepository>();
@@ -58,7 +65,7 @@ namespace Skinet.Infrastructure
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Skinet.API v1"));
             }
-
+            app.UseCors("SkinetPolicy");
             app.UseHttpsRedirection();
 
             app.UseRouting();

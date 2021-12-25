@@ -1,0 +1,21 @@
+﻿@page "/products"
+<h3>Products</h3>
+
+@if (Products == null)
+{
+        <p>Loading...</p>
+
+}
+else
+{
+    <ul>
+        @foreach (var product in Products)
+        {
+                <li>
+                @product.Name
+                </li>
+        }
+    </ul>
+
+}
+
