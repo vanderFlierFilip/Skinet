@@ -13,3 +13,5 @@ C:\Users\Filip van der Flier\source\repos\Skinet\Skinet.Services\obj\Debug\net5.
 C:\Users\Filip van der Flier\source\repos\Skinet\Skinet.Services\obj\Debug\net5.0\Skinet.Services.dll
 C:\Users\Filip van der Flier\source\repos\Skinet\Skinet.Services\obj\Debug\net5.0\ref\Skinet.Services.dll
 C:\Users\Filip van der Flier\source\repos\Skinet\Skinet.Services\obj\Debug\net5.0\Skinet.Services.pdb
+C:\Users\Filip van der Flier\source\repos\Skinet\Skinet.Services\bin\Debug\net5.0\Skinet.Model.dll
+C:\Users\Filip van der Flier\source\repos\Skinet\Skinet.Services\bin\Debug\net5.0\Skinet.Model.pdb

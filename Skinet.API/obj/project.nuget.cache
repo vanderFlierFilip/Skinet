@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "SnbIONL/bgVm7bhAJHAFWNruV7NIcnQGdUbhHRFj44at+pu4zPH0zSa2a8FNWqFvQJQXznXsH2bI4XSoe9ez7w==",
+  "dgSpecHash": "NU8y2lIxFvSAccVldQQJqap0/hNKIU3CTVzye7RZcud0wEQxrjFrDesg5/9TTHMhtK+ss+5SWszlJwyh9aA7uw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Filip van der Flier\\source\\repos\\Skinet\\Skinet.API\\Skinet.API.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Filip van der Flier\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\Filip van der Flier\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
     "C:\\Users\\Filip van der Flier\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Filip van der Flier\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Filip van der Flier\\.nuget\\packages\\microsoft.data.sqlite.core\\5.0.4\\microsoft.data.sqlite.core.5.0.4.nupkg.sha512",
@@ -38,7 +40,8 @@
     "C:\\Users\\Filip van der Flier\\.nuget\\packages\\system.collections.immutable\\5.0.0\\system.collections.immutable.5.0.0.nupkg.sha512",
     "C:\\Users\\Filip van der Flier\\.nuget\\packages\\system.componentmodel.annotations\\5.0.0\\system.componentmodel.annotations.5.0.0.nupkg.sha512",
     "C:\\Users\\Filip van der Flier\\.nuget\\packages\\system.diagnostics.diagnosticsource\\5.0.1\\system.diagnostics.diagnosticsource.5.0.1.nupkg.sha512",
-    "C:\\Users\\Filip van der Flier\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512"
+    "C:\\Users\\Filip van der Flier\\.nuget\\packages\\system.memory\\4.5.3\\system.memory.4.5.3.nupkg.sha512",
+    "C:\\Users\\Filip van der Flier\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

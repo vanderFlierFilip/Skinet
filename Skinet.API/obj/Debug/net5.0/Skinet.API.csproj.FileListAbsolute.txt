@@ -62,3 +62,7 @@ C:\Users\Filip van der Flier\source\repos\Skinet\Skinet.API\bin\Debug\net5.0\Ski
 C:\Users\Filip van der Flier\source\repos\Skinet\Skinet.API\bin\Debug\net5.0\Skinet.Services.pdb
 C:\Users\Filip van der Flier\source\repos\Skinet\Skinet.API\bin\Debug\net5.0\Skinet.Repository.dll
 C:\Users\Filip van der Flier\source\repos\Skinet\Skinet.API\bin\Debug\net5.0\Skinet.Repository.pdb
+C:\Users\Filip van der Flier\source\repos\Skinet\Skinet.API\bin\Debug\net5.0\AutoMapper.dll
+C:\Users\Filip van der Flier\source\repos\Skinet\Skinet.API\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\Filip van der Flier\source\repos\Skinet\Skinet.API\bin\Debug\net5.0\Skinet.Model.dll
+C:\Users\Filip van der Flier\source\repos\Skinet\Skinet.API\bin\Debug\net5.0\Skinet.Model.pdb

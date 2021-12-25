@@ -1,4 +1,5 @@
-﻿using Skinet.Core.Entities;
+﻿using Skinet.Model.Models;
+using Skinet.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace Skinet.Services.Interfaces
 {
     public interface IProductService
     {
-        Task<IEnumerable<Product>> GetAllProducts();
-        Task<Product> GetProduct(int productId);
+        Task<IEnumerable<ProductReadDto>> GetAllProducts();
+        Task<ProductReadDto> GetProduct(int productId);
         Task<IEnumerable<ProductBrand>> GetProductBrands();
         Task<IEnumerable<ProductType>> GetProductTypes();
 
