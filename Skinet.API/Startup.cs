@@ -38,6 +38,8 @@ namespace Skinet.Infrastructure
             // Repositories
             services.AddScoped<IProductRepository, ProductRepository>();
 
+
+            services.AddScoped<IFileManager, FileManager>();
             // Services
             services.AddScoped<IProductService, ProductService>();
             services.AddAutoMapper(typeof(MappingProfiles));

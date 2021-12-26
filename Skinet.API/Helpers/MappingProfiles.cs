@@ -16,6 +16,10 @@ namespace Skinet.API.Helpers
                 .ForMember(d =>  d.ProductBrand, o => o.MapFrom(s => s.ProductBrand.Name))
                 .ForMember(d =>  d.ProductType, o => o.MapFrom(s => s.ProductType.Name))
                 .ForMember(d => d.PictureUrl, o => o.MapFrom<ProductUrlResolver>());
+
+            CreateMap<ProductCreateDto, Product>().ForMember(p => p.PictureUrl, o => o.MapFrom(s => s.PictureFile.Name));
+
+            CreateMap<ProductCreateDto, ProductReadDto>();
         }
 
     }

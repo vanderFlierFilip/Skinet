@@ -19,7 +19,7 @@ namespace Skinet.API.Controllers
             _productsService = productsService;
         }
 
-        [HttpGet]
+        [HttpGet()]
         public async Task<ActionResult<List<Product>>> GetProducts()
         {
             var products = await _productsService.GetAllProducts();
@@ -40,11 +40,19 @@ namespace Skinet.API.Controllers
 
             return Ok(productBrands);
         }
+        [HttpGet("types")]
         public async Task<ActionResult<ProductType>> GetProductTypes()
         {
             var productTypes = await _productsService.GetProductTypes();
 
             return Ok(productTypes);
+        }
+        [HttpPost]
+        public async Task<ActionResult<ProductReadDto>> CreateNewProduct([FromForm] ProductCreateDto product)
+        {
+            var newProduct = await _productsService.CreateProduct(product);
+
+            return Ok(newProduct);
         }
     }
 }
