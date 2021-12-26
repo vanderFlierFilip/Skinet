@@ -13,9 +13,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skinet.Services", "Skinet.S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skinet.Test", "Skinet.Test\Skinet.Test.csproj", "{9D982980-254E-4FE7-B27A-0E78D38B4136}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skinet.Repository", "Skinet.Repository\Skinet.Repository.csproj", "{806813AA-AC0F-4248-8DE8-4D49ED407C34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skinet.Repository", "Skinet.Repository\Skinet.Repository.csproj", "{806813AA-AC0F-4248-8DE8-4D49ED407C34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skinet.Model", "Skinet.Model\Skinet.Model.csproj", "{6728F3A6-CC7B-42D2-ADB1-75B95E21DF0C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skinet.Model", "Skinet.Model\Skinet.Model.csproj", "{6728F3A6-CC7B-42D2-ADB1-75B95E21DF0C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Skinet.Client", "Skinet.Client\Skinet.Client.csproj", "{36D804F3-1030-44D5-AD49-272ECC8AD42F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +53,10 @@ Global
 		{6728F3A6-CC7B-42D2-ADB1-75B95E21DF0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6728F3A6-CC7B-42D2-ADB1-75B95E21DF0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6728F3A6-CC7B-42D2-ADB1-75B95E21DF0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36D804F3-1030-44D5-AD49-272ECC8AD42F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36D804F3-1030-44D5-AD49-272ECC8AD42F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36D804F3-1030-44D5-AD49-272ECC8AD42F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36D804F3-1030-44D5-AD49-272ECC8AD42F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
