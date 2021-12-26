@@ -3,6 +3,7 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Skinet.Infrastructure.csproj" />
     <ProjectReference Include="..\Skinet.Core\Skinet.Core.csproj" />
     <ProjectReference Include="..\Skinet.Model\Skinet.Model.csproj" />
   </ItemGroup>
