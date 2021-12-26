@@ -43,5 +43,22 @@ namespace Skinet.Repository
         {
             return SpecificationEvaluator<T>.GetQuery(_context.Set<T>().AsQueryable(), spec);
         }
+        public async Task<T> CreateAsync(T entity)
+        {
+            await _context.Set<T>().AddAsync(entity);
+
+            await _context.SaveChangesAsync();
+
+            return entity;
+        }
+        public async void DeleteAsync(int id)
+        {
+            var entity = await _context.Set<T>().FindAsync(id);
+
+            _context.Remove(entity);
+
+            await _context.SaveChangesAsync();
+
+        }
     }
 }
