@@ -3,6 +3,7 @@ using Moq;
 using Skinet.API.Helpers;
 using Skinet.Core.Entities;
 using Skinet.Core.Interfaces;
+using Skinet.Infrastructure.Data;
 using Skinet.Model.Models;
 using Skinet.Services.Implementations;
 using System;
@@ -19,6 +20,8 @@ namespace Skinet.Test.ServiceTests
         private readonly Mock<IGenericRepository<Product>> _productsRepoMock = new Mock<IGenericRepository<Product>>();
         private readonly Mock<IGenericRepository<ProductType>> _productTypesRepoMock = new Mock<IGenericRepository<ProductType>>();
         private readonly Mock<IGenericRepository<ProductBrand>> _productBrandsRepoMock = new Mock<IGenericRepository<ProductBrand>>();
+        private readonly Mock<IFileManager> _fileManager = new Mock<IFileManager>();
+
 
         private readonly ProductService _sut;
 
@@ -36,7 +39,8 @@ namespace Skinet.Test.ServiceTests
             _sut = new ProductService(_productsRepoMock.Object, 
                                       _productBrandsRepoMock.Object, 
                                       _productTypesRepoMock.Object,
-                                      _mapper);
+                                      _mapper,
+                                      _fileManager.Object);
         }
         [Fact]
         public async Task GetProduct_ShouldReturnASingleProductById()
