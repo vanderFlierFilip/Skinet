@@ -48,7 +48,7 @@ namespace Skinet.API.Controllers
             return Ok(productTypes);
         }
         [HttpPost]
-        public async Task<ActionResult<ProductReadDto>> CreateNewProduct([FromForm] ProductCreateDto product)
+        public async Task<ActionResult<ProductCreateDto>> CreateNewProduct([FromForm] ProductCreateDto product)
         {
             var newProduct = await _productsService.CreateProduct(product);
 

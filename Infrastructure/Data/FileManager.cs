@@ -12,12 +12,15 @@ namespace Skinet.Infrastructure.Data
     public class FileManager : IFileManager
     {
         private string _filePath;
+        private string _filePathForWeb;
         public FileManager(IConfiguration config)
         {
-            _filePath = config["Path:Images"];
+            _filePath = config["Path:ImagesUpload"];
+            _filePathForWeb = config["Path:ImagesReturn"];
+
         }
 
-        public async Task<string> UploadImage(IFormFile file)
+        public async Task<string> UploadImageAsync(IFormFile file)
         {
             try
             {
@@ -25,12 +28,13 @@ namespace Skinet.Infrastructure.Data
 
                 var fileName = file.FileName;
 
+
                 using (var stream = new FileStream(Path.Combine(save_path, fileName), FileMode.Create))
                 {
-                    await stream.CopyToAsync(stream);
+                     await file.CopyToAsync(stream);
                 }
 
-                return fileName;
+                return $"{_filePathForWeb}/{fileName}";
             }
 
             catch (Exception ex)

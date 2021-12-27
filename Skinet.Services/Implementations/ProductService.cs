@@ -60,19 +60,20 @@ namespace Skinet.Services.Implementations
 
             return productTypes;
         }
-        public async Task<ProductReadDto> CreateProduct(ProductCreateDto product)
+        public async Task<ProductCreateDto> CreateProduct(ProductCreateDto product)
         {
+
             var image = product.PictureFile;
             
-            await _fileManager.UploadImage(image);
+            var pictureWithPath = await _fileManager.UploadImageAsync(image);
 
             var entity = _mapper.Map<Product>(product);
+            
+            entity.PictureUrl = pictureWithPath;    
 
             await _productsRepo.CreateAsync(entity);
 
-            var readDto = _mapper.Map<ProductCreateDto, ProductReadDto>(product);
-
-            return readDto;
+            return product;
 
         }
     }

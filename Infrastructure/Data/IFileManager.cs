@@ -9,6 +9,6 @@ namespace Skinet.Infrastructure.Data
 {
     public interface IFileManager
     {
-        Task<string> UploadImage(IFormFile file);
+        Task<string> UploadImageAsync(IFormFile file);
     }
 }

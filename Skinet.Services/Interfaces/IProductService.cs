@@ -14,6 +14,6 @@ namespace Skinet.Services.Interfaces
         Task<ProductReadDto> GetProduct(int productId);
         Task<IEnumerable<ProductBrand>> GetProductBrands();
         Task<IEnumerable<ProductType>> GetProductTypes();
-        Task<ProductReadDto> CreateProduct(ProductCreateDto product);
+        Task<ProductCreateDto> CreateProduct(ProductCreateDto product);
     }
 }
