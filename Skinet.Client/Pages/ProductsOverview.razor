@@ -3,19 +3,28 @@
 
 @if (Products == null)
 {
-        <p>Loading...</p>
-
+                      <p>Loading...</p>
 }
 else
 {
-    <ul>
-        @foreach (var product in Products)
-        {
-                <li>
-                @product.Name
-                </li>
-        }
-    </ul>
+                        <div class="container">
+                            <div class="row">
+            @foreach (var product in Products)
+            {
+                                               <div class="col mx-2 my-2">
+                                                   <div class="card" style="width: 18rem;">
+                                                <img src="@product.PictureUrl" class="card-img-top" alt="@product.Name image">
+                                                <div class="card-body">
+                                                  <h5 class="card-title">@product.Name</h5>
+                                                  <p class="card-text">@product.Description</p>
+                                                  <p>Price: @product.Price</p>
+                                                  <a href="products/@product.Id" class="btn btn-primary">Details</a>
+                                                </div>
+                                              </div>
+                                               </div>
+
+            }
+                           </div>
+                           </div>
 
 }
-
