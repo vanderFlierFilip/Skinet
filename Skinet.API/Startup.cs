@@ -12,6 +12,7 @@ using Skinet.API.Helpers;
 using Skinet.Core.Interfaces;
 using Skinet.Infrastructure.Data;
 using Skinet.Repository;
+using Skinet.Services;
 using Skinet.Services.Implementations;
 using Skinet.Services.Interfaces;
 using System;
@@ -40,13 +41,13 @@ namespace Skinet.Infrastructure
                        .AllowAnyMethod()
                        .AllowAnyHeader();
             }));
-
-            services.AddScoped(typeof(IGenericRepository<>),  typeof(GenericRepository<>));
+            services.AddRepository();
             // Repositories
             services.AddScoped<IProductRepository, ProductRepository>();
-
+            services.AddScoped<IFileManager, FileManager>();
             // Services
             services.AddScoped<IProductService, ProductService>();
+
             services.AddAutoMapper(typeof(MappingProfiles));
             services.AddControllers();
             services.AddDbContext<StoreContext>(x => x.UseSqlite(_configuration.GetConnectionString("DefaultConnection")));

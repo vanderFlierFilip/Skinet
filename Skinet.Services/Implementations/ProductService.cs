@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Skinet.Infrastructure.Data;
 
 namespace Skinet.Services.Implementations
 {
@@ -17,15 +18,17 @@ namespace Skinet.Services.Implementations
         private readonly IGenericRepository<Product> _productsRepo;
         private readonly IGenericRepository<ProductBrand> _productBrandsRepo;
         private readonly IGenericRepository<ProductType> _productTypesRepo;
+        private readonly IFileManager _fileManager;
         private readonly IMapper _mapper;
 
-        public ProductService(IGenericRepository<Product> productsRepo, IGenericRepository<ProductBrand> productBrandsRepo, 
-        IGenericRepository<ProductType> productTypesRepo, IMapper mapper)
+        public ProductService(IGenericRepository<Product> productsRepo, IGenericRepository<ProductBrand> productBrandsRepo,
+        IGenericRepository<ProductType> productTypesRepo, IMapper mapper, IFileManager fileManager)
         {
             _productBrandsRepo = productBrandsRepo;
             _productTypesRepo = productTypesRepo;
             _mapper = mapper;
             _productsRepo = productsRepo;
+            _fileManager = fileManager;
         }
 
         public async Task<IEnumerable<ProductReadDto>> GetAllProducts()
@@ -39,9 +42,7 @@ namespace Skinet.Services.Implementations
 
         public async Task<ProductReadDto> GetProduct(int productId)
         {
-            var spec = new ProductsWithTypesAndBrandsSpecification(productId);
-
-            var product = await _productsRepo.GetEntityWithSpec(spec);
+            var product = await ApplySpecificationAndGetEntityByIdAsync(productId);
 
             return _mapper.Map<ProductReadDto>(product);
         }
@@ -56,6 +57,76 @@ namespace Skinet.Services.Implementations
             var productTypes = await _productTypesRepo.ListAllAsync();
 
             return productTypes;
+        }
+        public async Task<ProductReadDto> CreateProduct(ProductCreateDto model)
+        {
+            var products = await _productsRepo.ListAllAsync();
+            
+            bool productAlreadyExists = 
+                products.Any(p => p.Name == model.Name);    
+            
+            if (productAlreadyExists)
+            {
+                throw new Exception($"Product With Name: {model.Name} Already Exists");
+            }
+
+            var entity = _mapper.Map<Product>(model);
+
+            entity.PictureUrl = await UploadImageFromModelAndGetImagePathAsync(model);
+
+            await _productsRepo.CreateAsync(entity);
+
+            var product = await ApplySpecificationAndGetEntityByIdAsync(entity.Id);
+
+            return _mapper.Map<ProductReadDto>(product);
+
+        }
+
+        public async Task<ProductReadDto> UpdateProduct(ProductCreateDto model, int productId)
+        {
+            var entity = await ApplySpecificationAndGetEntityByIdAsync(productId);
+
+            var updatedEntity = _mapper.Map(model, entity);
+
+            updatedEntity.PictureUrl = await UploadImageFromModelAndGetImagePathAsync(model);
+
+            await _productsRepo.UpdateAsync(updatedEntity);
+
+            var product = await ApplySpecificationAndGetEntityByIdAsync(productId);
+
+            return _mapper.Map<ProductReadDto>(product);
+
+        }
+
+        public async Task<bool> DeleteAsync(int productId)
+        {
+            var product = await _productsRepo.GetByIdAsync(productId);
+
+            if (product == null)
+                return false;
+
+            _productsRepo.DeleteAsync(productId);
+
+            return true;
+        }
+
+        
+        private async Task<Product> ApplySpecificationAndGetEntityByIdAsync(int productId)
+        {
+            var spec = new ProductsWithTypesAndBrandsSpecification(productId);
+
+            var entity = await _productsRepo.GetEntityWithSpec(spec);
+
+            return entity;
+        }
+
+        private async Task<string> UploadImageFromModelAndGetImagePathAsync(ProductCreateDto model)
+        {
+            var image = model.PictureFile;
+
+            var pictureWithPath = await _fileManager.UploadImageAsync(image);
+
+            return pictureWithPath;
         }
     }
 }

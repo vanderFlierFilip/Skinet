@@ -19,7 +19,8 @@ namespace Skinet.API.Helpers
 
         public string Resolve(Product source, ProductReadDto destination, string destMember, ResolutionContext context)
         {
-            if (string.IsNullOrEmpty(source.PictureUrl))  return null;
+            if (string.IsNullOrEmpty(source.PictureUrl))  
+                return null;
             
             return _config["ApiUrl"] + source.PictureUrl;
 
