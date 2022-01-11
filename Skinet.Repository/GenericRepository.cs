@@ -51,6 +51,14 @@ namespace Skinet.Repository
 
             return entity;
         }
+        public async Task<T> UpdateAsync(T entity)
+        {
+           
+
+            await _context.SaveChangesAsync();
+
+            return entity;
+        }
         public async void DeleteAsync(int id)
         {
             var entity = await _context.Set<T>().FindAsync(id);

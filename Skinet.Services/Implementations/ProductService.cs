@@ -42,9 +42,7 @@ namespace Skinet.Services.Implementations
 
         public async Task<ProductReadDto> GetProduct(int productId)
         {
-            var spec = new ProductsWithTypesAndBrandsSpecification(productId);
-
-            var product = await _productsRepo.GetEntityWithSpec(spec);
+            var product = await ApplySpecificationAndGetEntityByIdAsync(productId);
 
             return _mapper.Map<ProductReadDto>(product);
         }
@@ -60,21 +58,75 @@ namespace Skinet.Services.Implementations
 
             return productTypes;
         }
-        public async Task<ProductCreateDto> CreateProduct(ProductCreateDto product)
+        public async Task<ProductReadDto> CreateProduct(ProductCreateDto model)
         {
-
-            var image = product.PictureFile;
+            var products = await _productsRepo.ListAllAsync();
             
-            var pictureWithPath = await _fileManager.UploadImageAsync(image);
-
-            var entity = _mapper.Map<Product>(product);
+            bool productAlreadyExists = 
+                products.Any(p => p.Name == model.Name);    
             
-            entity.PictureUrl = pictureWithPath;    
+            if (productAlreadyExists)
+            {
+                throw new Exception($"Product With Name: {model.Name} Already Exists");
+            }
+
+            var entity = _mapper.Map<Product>(model);
+
+            entity.PictureUrl = await UploadImageFromModelAndGetImagePathAsync(model);
 
             await _productsRepo.CreateAsync(entity);
 
-            return product;
+            var product = await ApplySpecificationAndGetEntityByIdAsync(entity.Id);
 
+            return _mapper.Map<ProductReadDto>(product);
+
+        }
+
+        public async Task<ProductReadDto> UpdateProduct(ProductCreateDto model, int productId)
+        {
+            var entity = await ApplySpecificationAndGetEntityByIdAsync(productId);
+
+            var updatedEntity = _mapper.Map(model, entity);
+
+            updatedEntity.PictureUrl = await UploadImageFromModelAndGetImagePathAsync(model);
+
+            await _productsRepo.UpdateAsync(updatedEntity);
+
+            var product = await ApplySpecificationAndGetEntityByIdAsync(productId);
+
+            return _mapper.Map<ProductReadDto>(product);
+
+        }
+
+        public async Task<bool> DeleteAsync(int productId)
+        {
+            var product = await _productsRepo.GetByIdAsync(productId);
+
+            if (product == null)
+                return false;
+
+            _productsRepo.DeleteAsync(productId);
+
+            return true;
+        }
+
+        
+        private async Task<Product> ApplySpecificationAndGetEntityByIdAsync(int productId)
+        {
+            var spec = new ProductsWithTypesAndBrandsSpecification(productId);
+
+            var entity = await _productsRepo.GetEntityWithSpec(spec);
+
+            return entity;
+        }
+
+        private async Task<string> UploadImageFromModelAndGetImagePathAsync(ProductCreateDto model)
+        {
+            var image = model.PictureFile;
+
+            var pictureWithPath = await _fileManager.UploadImageAsync(image);
+
+            return pictureWithPath;
         }
     }
 }

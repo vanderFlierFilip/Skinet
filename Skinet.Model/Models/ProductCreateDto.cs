@@ -13,7 +13,7 @@ namespace Skinet.Model.Models
         public string Description { get; set; }
         public decimal Price { get; set; }
         public IFormFile PictureFile { get; set; }
-        public string ProductType { get; set; }
-        public string ProductBrand { get; set; }
+        public int ProductTypeId { get; set; }
+        public int ProductBrandId { get; set; }
     }
 }

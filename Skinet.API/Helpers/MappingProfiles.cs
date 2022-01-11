@@ -13,6 +13,7 @@ namespace Skinet.API.Helpers
     {
         public MappingProfiles()
         {
+            
 
             CreateMap<Product, ProductReadDto>()
                 .ForMember(d => d.ProductBrand, o => o.MapFrom(s => s.ProductBrand.Name))
@@ -20,21 +21,17 @@ namespace Skinet.API.Helpers
                 .ForMember(d => d.PictureUrl, o => o.MapFrom<ProductUrlResolver>());
 
             CreateMap<ProductCreateDto, Product>()
-                .ForMember(d => d.PictureUrl, o => o.MapFrom(s => s.PictureFile.FileName))
-                .ForMember(d => d.ProductBrand, o => o.MapFrom(s => new ProductBrand { Name = s.ProductBrand }))
-                .ForMember(d => d.ProductType, o => o.MapFrom(s => new ProductType { Name = s.ProductType }));
+                 .ForMember(d => d.ProductBrand, o => o.MapFrom(s => s.ProductBrandId))
+                .ForMember(d => d.ProductType, o => o.MapFrom(s => s.ProductTypeId))
+                .ForMember(d => d.PictureUrl, o => o.MapFrom(s => s.PictureFile.FileName));
+
 
             CreateMap<Product, ProductCreateDto>()
-               .ForMember(d => d.ProductBrand, o => o.MapFrom(s => s.ProductBrand.Name))
-               .ForMember(d => d.ProductType, o => o.MapFrom(s => s.ProductType.Name))
                .ForMember(d => d.PictureFile, o => o.MapFrom(s => s.PictureUrl));
 
-            CreateMap<string, ProductType>();
-            CreateMap<string, ProductBrand>();
-
-
+            CreateMap<int, ProductBrand>().ReverseMap();
+            CreateMap<int, ProductType>().ReverseMap();
 
         }
-
     }
 }

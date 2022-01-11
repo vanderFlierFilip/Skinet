@@ -6,8 +6,10 @@
     <ProjectReference Include="..\Infrastructure\Skinet.Infrastructure.csproj" />
     <ProjectReference Include="..\Skinet.Core\Skinet.Core.csproj" />
     <ProjectReference Include="..\Skinet.Model\Skinet.Model.csproj" />
+    <ProjectReference Include="..\Skinet.Repository\Skinet.Repository.csproj" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="Scrutor" Version="3.3.0" />
   </ItemGroup>
 </Project>
