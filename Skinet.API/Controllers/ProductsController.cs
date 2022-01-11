@@ -19,7 +19,7 @@ namespace Skinet.API.Controllers
             _productsService = productsService;
         }
 
-        [HttpGet]
+        [HttpGet()]
         public async Task<ActionResult<List<Product>>> GetProducts()
         {
             var products = await _productsService.GetAllProducts();
@@ -31,6 +31,9 @@ namespace Skinet.API.Controllers
         {
             var product = await _productsService.GetProduct(id);
 
+            if (product == null)
+                return NotFound();
+
             return product;
         }
         [HttpGet("brands")]
@@ -40,11 +43,40 @@ namespace Skinet.API.Controllers
 
             return Ok(productBrands);
         }
+        [HttpGet("types")]
         public async Task<ActionResult<ProductType>> GetProductTypes()
         {
             var productTypes = await _productsService.GetProductTypes();
 
             return Ok(productTypes);
         }
+        [HttpPost]
+        public async Task<ActionResult<ProductReadDto>> CreateNewProduct([FromForm] ProductCreateDto product)
+        {
+            var newProduct = await _productsService.CreateProduct(product);
+
+            return Ok(newProduct);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<ProductReadDto>> UpdateProduct([FromForm] ProductCreateDto product, [FromForm] int productId)
+        {
+            ProductReadDto updated = await _productsService.UpdateProduct(product, productId);
+
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            return Ok(updated);
+        }
+
+        [HttpDelete("{productId}")]
+        public async Task<ActionResult> DeleteProduct(int productId)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            return Ok(await _productsService.DeleteAsync(productId));
+        }
+
     }
 }
