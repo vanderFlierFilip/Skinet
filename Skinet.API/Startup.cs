@@ -37,12 +37,12 @@ namespace Skinet.Infrastructure
         {
             services.AddCors(o => o.AddPolicy("SkinetPolicy", builder =>
             {
-                builder.WithOrigins("https://localhost:44369")
+                builder.WithOrigins("https://localhost:6001", "http://localhost:6000")
                        .AllowAnyMethod()
                        .AllowAnyHeader();
             }));
-            services.AddRepository();
             // Repositories
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IFileManager, FileManager>();
             // Services

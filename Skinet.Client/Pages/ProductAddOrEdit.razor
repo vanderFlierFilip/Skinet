@@ -1,0 +1,29 @@
+﻿@using System.ComponentModel.DataAnnotations
+
+@using System.Globalization
+
+<div style="max-width: 400px;">
+    <EditForm Model="@ProductModel" >
+        <MudCard>
+            <MudCardContent>
+                <MudTextField Label="Name"
+                              @bind-Value="ProductModel.Name" For="@(() => ProductModel.Name)" />
+                <MudTextField Label="Name"
+                              @bind-Value="ProductModel.Description" For="@(() => ProductModel.Description)" />
+
+            </MudCardContent>
+            <MudCardActions>
+                <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary" Class="ml-auto">Register</MudButton>
+            </MudCardActions>
+        </MudCard>
+       
+
+    </EditForm>
+
+
+</div>
+
+
+@code {
+
+}

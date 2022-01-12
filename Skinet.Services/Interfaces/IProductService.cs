@@ -12,10 +12,10 @@ namespace Skinet.Services.Interfaces
     {
         Task<IEnumerable<ProductReadDto>> GetAllProducts();
         Task<ProductReadDto> GetProduct(int productId);
-        Task<IEnumerable<ProductBrand>> GetProductBrands();
-        Task<IEnumerable<ProductType>> GetProductTypes();
+        Task<IEnumerable<ProductBrandDto>> GetProductBrands();
+        Task<IEnumerable<ProductTypeDto>> GetProductTypes();
         Task<ProductReadDto> CreateProduct(ProductCreateDto product);
-        Task<ProductReadDto> UpdateProduct(ProductCreateDto product, int productId);
+        Task<ProductUpdateDto> UpdateProduct(ProductUpdateDto product);
         Task<bool> DeleteAsync(int id);
     }
 }

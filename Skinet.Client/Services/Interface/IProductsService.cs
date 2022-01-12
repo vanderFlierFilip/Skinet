@@ -8,5 +8,7 @@ namespace Skinet.Client.Services.Interface
     {
         Task<IEnumerable<ProductReadDto>> GetAllProducts();
         Task<ProductReadDto> GetProduct(int id);
+        Task<ProductCreateDto> CreateProduct(ProductReadDto product);
+        Task<ProductUpdateDto> UpdateProduct(ProductUpdateDto product);
     }
 }

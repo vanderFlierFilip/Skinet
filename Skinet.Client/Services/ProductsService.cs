@@ -15,7 +15,7 @@ namespace Skinet.Client.Services
         {
             _httpClient = httpClient;
         }
-
+     
         public async Task<IEnumerable<ProductReadDto>> GetAllProducts()
         {
             return await JsonSerializer.DeserializeAsync<IEnumerable<ProductReadDto>>
@@ -26,6 +26,15 @@ namespace Skinet.Client.Services
         {
             return await JsonSerializer.DeserializeAsync<ProductReadDto>
                     (await _httpClient.GetStreamAsync($"api/products/{id}"), new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+        }
+        public Task<ProductCreateDto> CreateProduct(ProductReadDto product)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<ProductUpdateDto> UpdateProduct(ProductUpdateDto product)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

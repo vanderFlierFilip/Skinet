@@ -3,28 +3,43 @@
 
 @if (Products == null)
 {
-                      <p>Loading...</p>
+    <p>Loading...</p>
 }
 else
 {
-                        <div class="container">
-                            <div class="row">
-            @foreach (var product in Products)
-            {
-                                               <div class="col mx-2 my-2">
-                                                   <div class="card" style="width: 18rem;">
-                                                <img src="@product.PictureUrl" class="card-img-top" alt="@product.Name image">
-                                                <div class="card-body">
-                                                  <h5 class="card-title">@product.Name</h5>
-                                                  <p class="card-text">@product.Description</p>
-                                                  <p>Price: @product.Price</p>
-                                                  <a href="products/@product.Id" class="btn btn-primary">Details</a>
-                                                </div>
-                                              </div>
-                                               </div>
+    <MudTable Items="@Products" Hover="true" >
+        <ToolBarContent>
+            <div class="d-flex justify-space-around py-2 px-1 mt-6 mb-6">
+                <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Color="Color.Warning" @onclick="@(() => OpenModal(0))">Create</MudButton>
 
-            }
-                           </div>
-                           </div>
+            </div>
+        </ToolBarContent>
+        <HeaderContent>
+     
+            <MudTh></MudTh>
+            <MudTh>Name</MudTh>
+            <MudTh>Description</MudTh>
+            <MudTh>Price</MudTh>
+            <MudTh>Actions</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="">
+                <img src="@context.PictureUrl" style="height: 30px"/>
+            </MudTd>
+            <MudTd DataLabel="Name">@context.Name</MudTd>
+            <MudTd DataLabel="Description">@context.Description</MudTd>
+            <MudTd DataLabel="Prce">@context.Price</MudTd>
+            <MudMenu Label="Actions" Variant="Variant.Filled" EndIcon="@Icons.Filled.KeyboardArrowDown" IconColor="Color.Warning" >
+                <MudMenuItem @onclick="@(() => OpenModal(@context.Id))">Edit</MudMenuItem>
+                <MudMenuItem>Delete</MudMenuItem>
+            </MudMenu>
+
+        </RowTemplate>
+    </MudTable>
+
 
 }
+
+
+
+
