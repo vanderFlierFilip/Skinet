@@ -46,17 +46,18 @@ namespace Skinet.Services.Implementations
 
             return _mapper.Map<ProductReadDto>(product);
         }
-        public async Task<IEnumerable<ProductBrand>> GetProductBrands()
+        public async Task<IEnumerable<ProductBrandDto>> GetProductBrands()
         {
             var productBrands = await _productBrandsRepo.ListAllAsync();
 
-            return productBrands;
+            return _mapper.Map<IEnumerable<ProductBrandDto>>(productBrands);
         }
-        public async Task<IEnumerable<ProductType>> GetProductTypes()
+        public async Task<IEnumerable<ProductTypeDto>> GetProductTypes()
         {
             var productTypes = await _productTypesRepo.ListAllAsync();
 
-            return productTypes;
+            return _mapper.Map<IEnumerable<ProductTypeDto>>(productTypes);
+
         }
         public async Task<ProductReadDto> CreateProduct(ProductCreateDto model)
         {
@@ -82,9 +83,9 @@ namespace Skinet.Services.Implementations
 
         }
 
-        public async Task<ProductReadDto> UpdateProduct(ProductCreateDto model, int productId)
+        public async Task<ProductUpdateDto> UpdateProduct(ProductUpdateDto model)
         {
-            var entity = await ApplySpecificationAndGetEntityByIdAsync(productId);
+            var entity = await ApplySpecificationAndGetEntityByIdAsync(model.Id);
 
             var updatedEntity = _mapper.Map(model, entity);
 
@@ -92,9 +93,9 @@ namespace Skinet.Services.Implementations
 
             await _productsRepo.UpdateAsync(updatedEntity);
 
-            var product = await ApplySpecificationAndGetEntityByIdAsync(productId);
+            var product = await ApplySpecificationAndGetEntityByIdAsync(model.Id);
 
-            return _mapper.Map<ProductReadDto>(product);
+            return model;
 
         }
 
@@ -121,6 +122,14 @@ namespace Skinet.Services.Implementations
         }
 
         private async Task<string> UploadImageFromModelAndGetImagePathAsync(ProductCreateDto model)
+        {
+            var image = model.PictureFile;
+
+            var pictureWithPath = await _fileManager.UploadImageAsync(image);
+
+            return pictureWithPath;
+        }
+        private async Task<string> UploadImageFromModelAndGetImagePathAsync(ProductUpdateDto model)
         {
             var image = model.PictureFile;
 

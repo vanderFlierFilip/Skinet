@@ -3,19 +3,43 @@
 
 @if (Products == null)
 {
-        <p>Loading...</p>
-
+    <p>Loading...</p>
 }
 else
 {
-    <ul>
-        @foreach (var product in Products)
-        {
-                <li>
-                @product.Name
-                </li>
-        }
-    </ul>
+    <MudTable Items="@Products" Hover="true" >
+        <ToolBarContent>
+            <div class="d-flex justify-space-around py-2 px-1 mt-6 mb-6">
+                <MudButton Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.Add" Color="Color.Warning" @onclick="@(() => OpenModal(0))">Create</MudButton>
+
+            </div>
+        </ToolBarContent>
+        <HeaderContent>
+     
+            <MudTh></MudTh>
+            <MudTh>Name</MudTh>
+            <MudTh>Description</MudTh>
+            <MudTh>Price</MudTh>
+            <MudTh>Actions</MudTh>
+        </HeaderContent>
+        <RowTemplate>
+            <MudTd DataLabel="">
+                <img src="@context.PictureUrl" style="height: 30px"/>
+            </MudTd>
+            <MudTd DataLabel="Name">@context.Name</MudTd>
+            <MudTd DataLabel="Description">@context.Description</MudTd>
+            <MudTd DataLabel="Prce">@context.Price</MudTd>
+            <MudMenu Label="Actions" Variant="Variant.Filled" EndIcon="@Icons.Filled.KeyboardArrowDown" IconColor="Color.Warning" >
+                <MudMenuItem @onclick="@(() => OpenModal(@context.Id))">Edit</MudMenuItem>
+                <MudMenuItem>Delete</MudMenuItem>
+            </MudMenu>
+
+        </RowTemplate>
+    </MudTable>
+
 
 }
+
+
+
 

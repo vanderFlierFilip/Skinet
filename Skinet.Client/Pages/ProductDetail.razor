@@ -1,0 +1,16 @@
+﻿@page "/products/{ProductId}"
+
+<h3>ProductDetail</h3
+
+@if(Product == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <div class="container">
+        <h3>@Product.Name</h3>
+    </div>
+}
+
+

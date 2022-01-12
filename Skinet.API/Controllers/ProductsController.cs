@@ -59,9 +59,9 @@ namespace Skinet.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<ProductReadDto>> UpdateProduct([FromForm] ProductCreateDto product, [FromForm] int productId)
+        public async Task<ActionResult<ProductUpdateDto>> UpdateProduct([FromForm] ProductUpdateDto product)
         {
-            ProductReadDto updated = await _productsService.UpdateProduct(product, productId);
+            ProductUpdateDto updated = await _productsService.UpdateProduct(product);
 
             if (!ModelState.IsValid)
                 return BadRequest();
